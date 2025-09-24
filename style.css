@@ -1,52 +1,95 @@
+/* Moving water background */
 body {
-  font-family: Arial, sans-serif;
-  background: #003db8;
+  font-family: 'Arial', sans-serif;
   color: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(270deg, #003db8, #0056d6, #003db8);
+  background-size: 600% 600%;
+  animation: wave 20s ease infinite;
   display: flex;
-  justify-content: center;
-  padding-top: 50px;
+  flex-direction: column;
+  align-items: center;
 }
-.container {
-  width: 300px;
+
+@keyframes wave {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+/* Board layout */
 h1 {
+  margin-top: 20px;
   text-align: center;
+  text-shadow: 0 0 10px cyan;
 }
+
+.board {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.column {
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  border-radius: 12px;
+  min-width: 250px;
+  max-width: 300px;
+  flex: 1;
+}
+
+/* Task form */
 form {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
+
 input {
   flex: 1;
   padding: 10px;
   border: none;
   border-radius: 4px 0 0 4px;
 }
+
 button {
   padding: 10px;
   border: none;
-  background: #0056d6;
-  color: #fff;
+  background: #00ffff;
+  color: #003db8;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
 }
-ul { list-style: none; padding: 0; }
-li { 
-  background: #333; 
-  padding: 10px; 
-  margin-bottom: 5px; 
-  border-radius: 4px; 
-  display: flex; 
+
+button:hover {
+  background: #00cccc;
+}
+
+/* Task cards */
+ul { list-style: none; padding: 0; margin: 0; }
+li {
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 12px;
+  display: flex;
   justify-content: space-between;
   cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,255,255,0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0,255,255,0.8);
+}
+
 li.completed { text-decoration: line-through; opacity: 0.6; }
-
-
-/* style.css */
-body.dark { background:#121212; color:#fff; }
-body.dark li { background:#333; }
-
-@media (max-width: 500px) {
-  .container { width: 90%; }
-}

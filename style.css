@@ -93,3 +93,14 @@ li:hover {
 }
 
 li.completed { text-decoration: line-through; opacity: 0.6; }
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: gray;
+}
+
+input[type="checkbox"]:checked + label {
+  text-decoration: line-through;
+  color: gray;
+  transition: 0.2s;
+}
